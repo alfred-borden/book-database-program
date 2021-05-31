@@ -110,7 +110,10 @@ def app():
             time.sleep(1.5)
             
         elif choice == '2':
-            pass
+            for book in session.query(Book):
+                print(f'{book.id} | {book.title} | {book.author}')
+            input('Press enter to return to the main menu.')
+            
         elif choice == '3':
             pass
         elif choice == '4':
@@ -123,6 +126,3 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
     add_csv()
     app()
-    
-    for book in session.query(Book):
-        print(book)
